@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../components/shared/SocialLogin";
 import Lottie from 'lottie-react';
 import loginAnimation from '../assets/login.json';
@@ -7,7 +7,12 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 const Login = () => {
+
     const { signInUser } = useAuth();
+    
+    const location = useLocation();
+    const redirectTo = location.state?.from || '/';
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useNavigate();
     const onSubmit = data => {
@@ -19,7 +24,7 @@ const Login = () => {
                     title: "Success",
                     text: "Login success.",
                 });
-                navigate("/");
+                navigate(redirectTo, { replace: true });
             })
             .catch(errors => {
                 //console.error(errors);
@@ -69,7 +74,7 @@ const Login = () => {
                         <button className="btn btn-accent rounded-none w-full">Login</button>
                     </div>
                     <div className="py-2">
-                        <p className="text-center">Dont’t Have An Account ? <Link to={'/register'} className="text-accent font-semibold hover:underline">Register</Link></p>
+                        <p className="text-center">Dont’t Have An Account ? <Link to={'/register'} state={{ from: redirectTo }} className="text-accent font-semibold hover:underline">Register</Link></p>
                     </div>
                     <div className="divider">OR</div>
                 </form>

@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import Error from "../pages/Error";
 import AllEquipment from "../pages/AllEquipment";
 import AddEquipmentPage from "../pages/AddEquipmentPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/add-equipment",
-        element: <AddEquipmentPage></AddEquipmentPage>
+        element: <ProtectedRoute><AddEquipmentPage></AddEquipmentPage></ProtectedRoute>
       }
     ],
   },

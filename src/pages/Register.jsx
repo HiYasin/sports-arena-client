@@ -1,5 +1,5 @@
 
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../components/shared/SocialLogin";
 import Lottie from 'lottie-react';
 import registerAnimation from '../assets/register.json';
@@ -9,6 +9,9 @@ import Swal from "sweetalert2";
 const Register = () => {
     const { createUser, updateInfo } = useAuth();
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const location = useLocation();
+    const redirectTo = location.state?.from || '/';
     const navigate = useNavigate();
     const onSubmit = data => {
         //console.log(data);
@@ -22,7 +25,7 @@ const Register = () => {
                     title: "Success",
                     text: "Register & Login Success!",
                 });
-                navigate("/");
+                navigate(redirectTo, { replace: true });
             })
             .catch(errors => {
                 //console.error(errors);
@@ -91,7 +94,7 @@ const Register = () => {
                             <button className="btn btn-accent rounded-none w-full">Register</button>
                         </div>
                         <div className="py-2">
-                            <p className="text-center">Already Have An Account ? <Link to={'/login'} className="text-accent font-semibold hover:underline">Login</Link></p>
+                            <p className="text-center">Already Have An Account ? <Link to={'/login'} state={{ from: redirectTo }} className="text-accent font-semibold hover:underline">Login</Link></p>
                         </div>
                         <div className="divider">OR</div>
                     </form>
