@@ -1,5 +1,6 @@
 import React from 'react';
 import ContainerX from './ContainerX';
+import { FaInstagram, FaTwitter, FaFacebook, FaWhatsapp, FaLinkedin, FaTelegram } from 'react-icons/fa6';
 const Footer = () => {
     return (
         <div className='border-0 border-t-[1px] border-gray-300'>
@@ -27,9 +28,9 @@ const Footer = () => {
                     </nav>
                 </div>
                 <form className='text-center md:text-left min-w-[150px] mx-auto'>
-                    <h6 className="footer-title">Newsletter</h6>
+                    <h1 className='text-3xl font-semibold text-accent'>Sports Arena</h1>
                     <fieldset>
-                        <div>Enter your email address</div>
+                        <div>Connect with us</div>
                         <div className="join mt-4">
                             <input
                                 type="text"
@@ -40,6 +41,19 @@ const Footer = () => {
                     </fieldset>
                 </form>
             </ContainerX>
+            <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+                <ContainerX className={'flex flex-col md:flex-row justify-between w-full'}>
+                    <aside>
+                        <p>Copyright © {new Date().getFullYear()} - All right reserved by Sports Arena</p>
+                    </aside>
+                    <aside className='flex gap-2'>
+                        <FaFacebook className='text-2xl cursor-pointer transition-all duration-300 hover:text-accent'/>
+                        <FaTwitter className='text-2xl cursor-pointer transition-all duration-300 hover:text-accent'/>
+                        <FaLinkedin className='text-2xl cursor-pointer transition-all duration-300 hover:text-accent'/>
+                        <FaTelegram className='text-2xl cursor-pointer transition-all duration-300 hover:text-accent'/>
+                    </aside>
+                </ContainerX>
+            </footer>
         </div>
     );
 };
