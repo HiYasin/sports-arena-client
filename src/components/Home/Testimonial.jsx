@@ -6,14 +6,27 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import SectionTitle from '../shared/SectionTitle';
+import useAxiosPublic from '../../customHooks/useAxiosPublic';
 
 const Testimonial = () => {
     const [testimonial, setTestimonial] = useState([]);
+    const axiosPublic = useAxiosPublic();
     useEffect(() => {
-        fetch('reviews.json')
-            .then(res => res.json())
-            .then(data => setTestimonial(data));
-    }, [])
+        const fetchData = async () => {
+            try {
+                const res = await axiosPublic.get(`/reviews`);
+                setTestimonial(res.data);
+            } catch (error) {
+                console.log(error)
+                Swal.fire({
+                    title: "Error",
+                    text: "Reviews Data Can't be Loaded",
+                    icon: "error"
+                })
+            }
+        };
+        fetchData();
+    }, []);
     return (
         <div className='py-10 md:px-10 bg-base-100 my-10 rounded-2xl'>
             <SectionTitle>What Our Clients Say</SectionTitle>
