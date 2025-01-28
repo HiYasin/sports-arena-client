@@ -1,10 +1,12 @@
 import React from 'react';
-import SectionTitle from '../shared/SectionTitle';
-
+import ContainerX from '../shared/ContainerX';
+import Slider from './Slider';
 const Banner = () => {
     return (
         <div>
-            <SectionTitle>Banner</SectionTitle>
+            <ContainerX>
+                <Slider></Slider>
+            </ContainerX>
         </div>
     );
 };
