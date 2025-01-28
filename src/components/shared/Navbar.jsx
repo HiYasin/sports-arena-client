@@ -1,14 +1,14 @@
 import { Menu } from 'lucide-react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ThemeController from './ThemeController';
 
 const Navbar = () => {
     const navItems = <>
-    <li><a>Home</a></li>
-    <li><a>All Sports Equipment</a></li>
-    <li><a>Add Equipment</a></li>
-    <li><a>My Equipment</a></li>
+    <NavLink><li>Home</li></NavLink>
+    <NavLink><li>All Sports Equipment</li></NavLink>
+    <NavLink><li>Add Equipment</li></NavLink>
+    <NavLink><li>My Equipment</li></NavLink>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm px-2 md:px-4 md:rounded-3xl">
@@ -19,7 +19,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             {navItems}
                     </ul>
                 </div>
