@@ -2,20 +2,26 @@ import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import SectionTitle from '../shared/SectionTitle';
 import ProductCard from './ProductCard';
+import useAxiosPublic from '../../customHooks/useAxiosPublic';
 
 const Services = () => {
-    const [products, setProducts] = useState()
+    const [products, setProducts] = useState();
+    const axiosPublic = useAxiosPublic();
     useEffect(() => {
-        fetch('products.json')
-            .then(response => response.json())
-            .then(data => setProducts(data.slice(0, 6)))
-            .catch(error =>
-            Swal.fire({
-                title: "Error",
-                text: "Products Data Can't be Loaded",
-                icon: "error"
-            })
-            )
+        const fetchData = async () => {
+            try {
+                const res = await axiosPublic.get(`/equipment`);
+                setProducts(res.data.slice(0, 6));
+            } catch (error) {
+                console.log(error)
+                Swal.fire({
+                    title: "Error",
+                    text: "Products Data Can't be Loaded",
+                    icon: "error"
+                })
+            }
+        };
+        fetchData();
     }, []);
     return (
         <>
