@@ -3,14 +3,14 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import ThemeController from './ThemeController';
 import useAuth from '../../customHooks/useAuth';
-
+import './Navbar.css';
 const Navbar = () => {
     const { user, signOutUser } = useAuth();
     const navItems = <>
-        <NavLink><li>Home</li></NavLink>
-        <NavLink><li>All Sports Equipment</li></NavLink>
-        <NavLink><li>Add Equipment</li></NavLink>
-        <NavLink><li>My Equipment</li></NavLink>
+        <li><NavLink to={'/'}>Home</NavLink></li>
+        <li><NavLink to={'/all-sports'}>All Sports Equipment</NavLink></li>
+        <li><NavLink to={'/add-equipment'}>Add Equipment</NavLink></li>
+        <li><NavLink to={'/my-equipment'}>My Equipment</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm px-2 md:px-4 md:rounded-3xl">
@@ -37,7 +37,7 @@ const Navbar = () => {
                 {
                     user ?
                         <div className='flex gap-2'>
-                            <button className='btn btn-warning' onClick={signOutUser}>Logout</button>
+                            <button className='btn btn-accent' onClick={signOutUser}>Logout</button>
 
                             <div className="avatar cursor-pointer" title={user.displayName}>
                                 <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring ring-offset-2">
