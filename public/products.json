@@ -78,7 +78,7 @@
         "userName": "Jane Doe"
     },
     {
-        "image": "https://example.com/images/yoga-mat.jpg",
+        "image": "https://i.ibb.co.com/2YSxHWXv/volyball.jpg",
         "itemName": "Eco-Friendly Yoga Mat",
         "categoryName": "Yoga",
         "description": "Non-slip, eco-friendly yoga mat with excellent cushioning for comfort.",
@@ -91,7 +91,7 @@
         "userName": "Lisa Wilson"
     },
     {
-        "image": "https://example.com/images/golf-club.jpg",
+        "image": "https://i.ibb.co.com/DfQdLwCT/pool2.jpg",
         "itemName": "Precision Golf Club",
         "categoryName": "Golf",
         "description": "High-performance golf club for accuracy and maximum power.",
@@ -104,7 +104,7 @@
         "userName": "Mark Jones"
     },
     {
-        "image": "https://example.com/images/boxing-gloves.jpg",
+        "image": "https://i.ibb.co.com/zHf3ZpZT/wheel.jpg",
         "itemName": "Professional Boxing Gloves",
         "categoryName": "Boxing",
         "description": "Durable, padded gloves designed for training and professional bouts.",
@@ -117,7 +117,7 @@
         "userName": "Oliver Davis"
     },
     {
-        "image": "https://example.com/images/skiing-helmet.jpg",
+        "image": "https://i.ibb.co.com/4Z1Mh971/wheel2.jpg",
         "itemName": "Adjustable Skiing Helmet",
         "categoryName": "Skiing",
         "description": "Lightweight and sturdy helmet for skiing with enhanced safety features.",
