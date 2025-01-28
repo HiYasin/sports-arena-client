@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Error from "../pages/Error";
 import AllEquipment from "../pages/AllEquipment";
+import AddEquipmentPage from "../pages/AddEquipmentPage";
 
 const Router = createBrowserRouter([
   {
@@ -29,8 +30,8 @@ const Router = createBrowserRouter([
         element: <AllEquipment></AllEquipment>
       },
       {
-        path: "*",
-        element: <Error></Error>
+        path: "/add-equipment",
+        element: <AddEquipmentPage></AddEquipmentPage>
       }
     ],
   },

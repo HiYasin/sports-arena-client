@@ -12,7 +12,7 @@ const Main = () => {
                 </ContainerX>
             </header>
             <main className="pt-20 pb-10 px-2 bg-base-300">
-                <ContainerX>
+                <ContainerX className={'py-0.5'}>
                     <Outlet></Outlet>
                 </ContainerX>
             </main>

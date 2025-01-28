@@ -32,7 +32,7 @@ const Testimonial = () => {
                 className="mySwiper"
             >
                 {
-                    testimonial.map((testimonial,index) => <SwiperSlide key={testimonial._id}>
+                    testimonial.map((testimonial, index) => <SwiperSlide key={testimonial._id}>
                         <TestimonialCard key={index} testimonial={testimonial}></TestimonialCard>
                     </SwiperSlide>)
                 }
