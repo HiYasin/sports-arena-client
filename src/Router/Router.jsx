@@ -8,6 +8,7 @@ import AllEquipment from "../pages/AllEquipment";
 import AddEquipmentPage from "../pages/AddEquipmentPage";
 import ProtectedRoute from "./ProtectedRoute";
 import ProductDetails from "../pages/ProductDetails";
+import MyEquipments from "../pages/MyEquipments";
 
 const Router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const Router = createBrowserRouter([
       {
         path: '/equipment-details/:id',
         element: <ProtectedRoute><ProductDetails></ProductDetails></ProtectedRoute>
+      },
+      {
+        path: '/my-equipment',
+        element: <ProtectedRoute><MyEquipments></MyEquipments></ProtectedRoute>
       }
     ],
   },

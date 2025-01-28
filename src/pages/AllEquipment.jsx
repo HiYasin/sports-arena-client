@@ -4,7 +4,7 @@ import SectionTitle from '../components/shared/SectionTitle';
 import useAxiosPublic from '../customHooks/useAxiosPublic';
 import { Link } from 'react-router-dom';
 
-const Services = () => {
+const AllEquipment = () => {
     const [products, setProducts] = useState()
     const axiosPublic = useAxiosPublic();
     useEffect(() => {
@@ -47,7 +47,7 @@ const Services = () => {
                             <td className="px-4 text-center py-2">{product.itemName}</td>
                             <td className="px-4 text-center py-2">{product.categoryName}</td>
                             <td className="px-4 text-center py-2">${product.price}</td>
-                            <td className="px-4 text-center py-2">{product.rating}</td>
+                            <td className="px-4 text-center py-2">{product.rating} ⭐</td>
                             <td className="px-4 text-center py-2">
                             <Link to={`/equipment-details/${product._id}`} className="btn btn-accent w-full">View Details</Link>
                             </td>
@@ -62,4 +62,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default AllEquipment
