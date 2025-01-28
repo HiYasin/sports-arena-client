@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-    const { image, itemName, categoryName, price, rating } = product;
+    const { _id, image, itemName, categoryName, price, rating } = product;
     return (
         <div className="card bg-base-100 rounded-none shadow-sm">
             <figure className="px-10 pt-10">
@@ -14,7 +15,7 @@ const ProductCard = ({ product }) => {
                 <p>Category: <span className='font-bold'>{categoryName}</span></p>
                 <p>Price: <span className='bg-yellow-600/30 rounded-full px-4 font-bold'>{price}</span></p>
                 <p>Rating: <span className='bg-yellow-600/30 rounded-full px-4 font-bold'>{rating}</span></p>
-                <button className="btn btn-accent w-full">View Details</button>
+                <Link to={`/equipment-details/${_id}`} className="btn btn-accent w-full">View Details</Link>
 
             </div>
         </div>

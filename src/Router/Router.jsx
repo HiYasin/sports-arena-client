@@ -7,6 +7,7 @@ import Error from "../pages/Error";
 import AllEquipment from "../pages/AllEquipment";
 import AddEquipmentPage from "../pages/AddEquipmentPage";
 import ProtectedRoute from "./ProtectedRoute";
+import ProductDetails from "../pages/ProductDetails";
 
 const Router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
       {
         path: "/add-equipment",
         element: <ProtectedRoute><AddEquipmentPage></AddEquipmentPage></ProtectedRoute>
+      },
+      {
+        path: '/equipment-details/:id',
+        element: <ProtectedRoute><ProductDetails></ProductDetails></ProtectedRoute>
       }
     ],
   },

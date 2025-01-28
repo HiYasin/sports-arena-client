@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import SectionTitle from '../components/shared/SectionTitle';
 import useAxiosPublic from '../customHooks/useAxiosPublic';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
     const [products, setProducts] = useState()
@@ -48,7 +49,7 @@ const Services = () => {
                             <td className="px-4 text-center py-2">${product.price}</td>
                             <td className="px-4 text-center py-2">{product.rating}</td>
                             <td className="px-4 text-center py-2">
-                            <button className="btn btn-accent w-full">View Details</button>
+                            <Link to={`/equipment-details/${product._id}`} className="btn btn-accent w-full">View Details</Link>
                             </td>
                         </tr>
                     ))}
