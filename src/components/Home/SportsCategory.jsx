@@ -35,7 +35,7 @@ const SportsCategory = () => {
             <div className='grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-10'>
                 {
                     sports.map((sport, index) =>
-                        <div key={index} className='grid justify-center text-center border-2 rounded-xl p-10 hover:border-gray-800 transition-all duration-500 cursor-pointer'>
+                        <div key={index} className='grid justify-center text-center border-2 rounded-xl p-10 cursor-pointer hover:bg-accent border-gray-800 transition-all duration-500'>
                             <h1 className='text-gray-900 text-2xl font-bold'>{sport.name}</h1>
                             <p className='text-gray-700 '>{sport.description}</p>
                         </div>
