@@ -11,7 +11,7 @@ const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useNavigate();
     const onSubmit = data => {
-        console.log(data);
+        //console.log(data);
         createUser(data.email, data.password)
         .then(res => {
             //console.log(res);
@@ -80,7 +80,7 @@ const Register = () => {
                                 required: "Password is required",
                                 pattern: {
                                     value: /^(?=.*[A-Z])(?=.{6,})/,
-                                    message: "Password must be at least 6 digits long, contain a capital letter and a special character"
+                                    message: "Password must be at least 6 digits long, contain a uppercase letter and a lowercase letter"
                                 }
                             })}
                              className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
