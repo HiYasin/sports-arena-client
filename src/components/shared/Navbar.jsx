@@ -2,13 +2,15 @@ import { Menu } from 'lucide-react';
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import ThemeController from './ThemeController';
+import useAuth from '../../customHooks/useAuth';
 
 const Navbar = () => {
+    const { user, signOutUser } = useAuth();
     const navItems = <>
-    <NavLink><li>Home</li></NavLink>
-    <NavLink><li>All Sports Equipment</li></NavLink>
-    <NavLink><li>Add Equipment</li></NavLink>
-    <NavLink><li>My Equipment</li></NavLink>
+        <NavLink><li>Home</li></NavLink>
+        <NavLink><li>All Sports Equipment</li></NavLink>
+        <NavLink><li>Add Equipment</li></NavLink>
+        <NavLink><li>My Equipment</li></NavLink>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm px-2 md:px-4 md:rounded-3xl">
@@ -20,7 +22,7 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            {navItems}
+                        {navItems}
                     </ul>
                 </div>
                 <Link to={'/'} className="text-xl text-accent uppercase font-semibold">Sports Arena</Link>
@@ -32,8 +34,23 @@ const Navbar = () => {
             </div>
             <div className="navbar-end space-x-2">
                 <ThemeController />
-                <Link to={'/login'} className="btn btn-accent">Login</Link>
-                <Link to={'/register'} className="btn btn-accent">Register</Link>
+                {
+                    user ?
+                        <div className='flex gap-2'>
+                            <button className='btn btn-warning' onClick={signOutUser}>Logout</button>
+
+                            <div className="avatar cursor-pointer" title={user.displayName}>
+                                <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring ring-offset-2">
+                                    <img src={user.photoURL} alt={user.displayName} />
+                                </div>
+                            </div>
+                        </div>
+                        :
+                        <div className='space-x-1.5'>
+                            <Link to={'/login'} className="btn btn-accent">Login</Link>
+                            <Link to={'/register'} className="btn btn-accent">Register</Link>
+                        </div>
+                }
             </div>
         </div>
     );
