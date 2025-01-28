@@ -3,12 +3,40 @@ import useAuth from "../customHooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import Spinner from "../components/shared/Spinner";
+import useAxiosPublic from "../customHooks/useAxiosPublic";
 
 const AddEquipmentPage = () => {
     const { user } = useAuth();
+    const axiosPublic = useAxiosPublic();
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => {
-        console.log(data);
+    const onSubmit = async(data) => {
+        
+        const equipment = { ...data, userEmail: user.displayName, userName: user.displayName };
+        console.log(equipment);
+        try {
+            const res = await axiosPublic.post(`/equipment`, equipment);
+            console.log(res.data);
+            if (res.data.insertedId && res.data.acknowledged) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Employee promoted to HR successfully",
+                });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Something went wrong!",
+                });
+            }
+        } catch (error) {
+            console.log(error)
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "An error occurred!",
+            });
+        }
     };
     return (
         <>
@@ -48,7 +76,7 @@ const AddEquipmentPage = () => {
                                     <label className="label block">
                                         <span className="label-text">Price</span>
                                     </label>
-                                    <input type="text" placeholder="Price" {...register("price", { required: "Price is required" })} className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
+                                    <input type="number" placeholder="Price" {...register("price", { required: "Price is required" })} className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
                                     <p className="text-red-500">{errors.price?.message}</p>
                                 </div>
 
@@ -56,7 +84,7 @@ const AddEquipmentPage = () => {
                                     <label className="label block">
                                         <span className="label-text">Rating</span>
                                     </label>
-                                    <input type="text" placeholder="Rating" {...register("rating", { required: "Rating is required" })} className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
+                                    <input type="number" placeholder="Rating" {...register("rating", { required: "Rating is required" })} className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
                                     <p className="text-red-500">{errors.rating?.message}</p>
                                 </div>
 
@@ -85,7 +113,7 @@ const AddEquipmentPage = () => {
                                     <label className="label block">
                                         <span className="label-text">Stock Status</span>
                                     </label>
-                                    <input type="text" placeholder="Stock Status" {...register("stockStatus", { required: "Stock Status is required" })} className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
+                                    <input type="number" placeholder="Stock Status" {...register("stockStatus", { required: "Stock Status is required" })} className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
                                     <p className="text-red-500">{errors.stockStatus?.message}</p>
                                 </div>
 
