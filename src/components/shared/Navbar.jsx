@@ -8,7 +8,7 @@ const Navbar = () => {
     const { user, signOutUser } = useAuth();
     const navItems = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><NavLink to={'/all-sports'}>All Sports Equipment</NavLink></li>
+        <li><NavLink to={'/all-equipment'}>All Sports Equipment</NavLink></li>
         <li><NavLink to={'/add-equipment'}>Add Equipment</NavLink></li>
         <li><NavLink to={'/my-equipment'}>My Equipment</NavLink></li>
     </>
