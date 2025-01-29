@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import ThemeController from './ThemeController';
 import useAuth from '../../customHooks/useAuth';
+import { Tooltip } from 'react-tooltip';
 import './Navbar.css';
 const Navbar = () => {
     const { user, signOutUser } = useAuth();
@@ -39,11 +40,12 @@ const Navbar = () => {
                         <div className='flex gap-2'>
                             <button className='btn btn-accent' onClick={signOutUser}>Logout</button>
 
-                            <div className="avatar cursor-pointer" title={user.displayName}>
+                            <div className="avatar cursor-pointer" id="my-anchor-element">
                                 <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring ring-offset-2">
                                     <img src={user.photoURL} alt={user.displayName} />
                                 </div>
                             </div>
+                            <Tooltip anchorSelect="#my-anchor-element" content={user.displayName} />
                         </div>
                         :
                         <div className='space-x-1.5'>
