@@ -13,7 +13,7 @@ const Services = () => {
                 const res = await axiosPublic.get(`/equipment`);
                 setProducts(res.data.slice(0, 6));
             } catch (error) {
-                console.log(error)
+                //console.log(error)
                 Swal.fire({
                     title: "Error",
                     text: "Products Data Can't be Loaded",

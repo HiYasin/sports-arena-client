@@ -1,27 +1,53 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../customHooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import Spinner from "../components/shared/Spinner";
 import useAxiosPublic from "../customHooks/useAxiosPublic";
+import { useEffect } from "react";
 
-const AddEquipmentPage = () => {
+const ProductUpdate = () => {
     const { user } = useAuth();
+    //console.log(user.name, user.email);
+    const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = async(data) => {
-        
-        const equipment = { ...data, userEmail: user.email, userName: user.displayName };
-        //console.log(equipment);
+    const { id } = useParams();
+    const { register, formState: { errors }, handleSubmit, setValue } = useForm();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axiosPublic.get(`/equipment/${id}`);
+                const { itemName, categoryName, description, price, rating, customization, processingTime, image, stockStatus } = res.data;
+                setValue("itemName", itemName);
+                setValue("categoryName", categoryName);
+                setValue("description", description);
+                setValue("price", price);
+                setValue("rating", rating);
+                setValue("customization", customization);
+                setValue("processingTime", processingTime);
+                setValue("image", image);
+                setValue("stockStatus", stockStatus);
+                setLoading(false);
+                //console.log(res.data);
+            } catch (error) {
+                //console.log(error)
+            }
+        };
+        fetchData();
+    }, []);
+
+    const onSubmit = async (data) => {
         try {
-            const res = await axiosPublic.post(`/equipment`, equipment);
+            const res = await axiosPublic.patch(`/update-equipment/${id}`, data);
             //console.log(res.data);
-            if (res.data.insertedId && res.data.acknowledged) {
+            if (res.data.modifiedCount>0 && res.data.acknowledged) {
                 Swal.fire({
                     icon: "success",
                     title: "Success",
-                    text: "Data inserted successfully",
+                    text: "Data updated successfully",
                 });
+                navigate(`/my-equipment`);
             } else {
                 Swal.fire({
                     icon: "error",
@@ -123,18 +149,16 @@ const AddEquipmentPage = () => {
                                         <span className="label-text">Current User Name</span>
                                     </label>
                                     <input value={user.displayName} disabled className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
-                                    <p className="text-red-500">{errors.stockStatus?.message}</p>
                                 </div>
                                 <div className="form-control">
                                     <label className="label block">
                                         <span className="label-text">Current User Email</span>
                                     </label>
                                     <input value={user.email} disabled className="placeholder:text-gray-900 input w-full rounded-none outline-none border-none bg-gray-100" />
-                                    <p className="text-red-500">{errors.stockStatus?.message}</p>
                                 </div>
 
                                 <div className="form-control mt-4">
-                                    <button className="btn btn-accent rounded-none w-full" type="submit">Add Equipment</button>
+                                    <button className="btn btn-accent rounded-none w-full" type="submit">Update Data</button>
                                 </div>
 
                             </form>
@@ -147,4 +171,4 @@ const AddEquipmentPage = () => {
     );
 };
 
-export default AddEquipmentPage;
+export default ProductUpdate;

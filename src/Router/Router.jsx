@@ -9,6 +9,7 @@ import AddEquipmentPage from "../pages/AddEquipmentPage";
 import ProtectedRoute from "./ProtectedRoute";
 import ProductDetails from "../pages/ProductDetails";
 import MyEquipments from "../pages/MyEquipments";
+import ProductUpdate from "../pages/ProductUpdate";
 
 const Router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const Router = createBrowserRouter([
       {
         path: '/equipment-details/:id',
         element: <ProtectedRoute><ProductDetails></ProductDetails></ProtectedRoute>
+      },
+      {
+        path: '/update/:id',
+        element: <ProtectedRoute><ProductUpdate></ProductUpdate></ProtectedRoute>,
       },
       {
         path: '/my-equipment',

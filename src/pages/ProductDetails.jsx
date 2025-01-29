@@ -17,7 +17,7 @@ const ProductDetails = () => {
                 setLoading(false);
                 //console.log(res.data);
             } catch (error) {
-                console.log(error)
+                //console.log(error)
                 Swal.fire({
                     title: "Error",
                     text: "Product Data Can't be Loaded",
@@ -27,13 +27,20 @@ const ProductDetails = () => {
         };
         fetchData();
     }, []);
+    const handleBuy=()=>{
+        Swal.fire({
+            title: "Success",
+            text: "Product purchase successfully.",
+            icon: "success"
+        })
+    }
     return (
         <>
             {
                 loading ?
                     <Spinner></Spinner>
                     :
-                    <div className="grid md:grid-cols-2 w-full justify-center items-center bg-base-100 shadow-md border border-gray-200">
+                    <div className="grid md:grid-cols-2 w-full justify-center items-center bg-base-100 shadow-md border border-gray-200 rounded-2xl">
                         <figure className="p-4 w-full h-full flex justify-center items-center">
                             <img
                                 src={product.image}
@@ -86,7 +93,7 @@ const ProductDetails = () => {
                             </p>
 
                             <div className="card-actions">
-                                <button className="btn btn-accent">Buy Now</button>
+                                <button className="btn btn-accent" onClick={handleBuy}>Buy Now</button>
                             </div>
                         </div>
                     </div>

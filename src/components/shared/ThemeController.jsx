@@ -31,8 +31,15 @@ const ThemeController = () => {
     return (
         <div>
             <label className="toggle text-base-content">
-                <input type="checkbox" value={currentTheme} onChange={handleChange} className="theme-controller" />
+                {/* <input type="checkbox" value={currentTheme} onChange={handleChange} className="theme-controller" /> */}
 
+                <input 
+                    type="checkbox" 
+                    value={currentTheme}
+                    checked={currentTheme === 'night'} 
+                    onChange={handleChange} 
+                    className="theme-controller" 
+                />
                 <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
                     <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" >
                         <circle cx="12" cy="12" r="4"></circle>

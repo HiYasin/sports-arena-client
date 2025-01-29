@@ -17,7 +17,7 @@ const Testimonial = () => {
                 const res = await axiosPublic.get(`/reviews`);
                 setTestimonial(res.data);
             } catch (error) {
-                console.log(error)
+                //console.log(error)
                 Swal.fire({
                     title: "Error",
                     text: "Reviews Data Can't be Loaded",

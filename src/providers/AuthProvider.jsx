@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
     //console.log(user);
 
@@ -61,6 +61,7 @@ const AuthProvider = ({ children }) => {
         createUser,
         signOutUser,
     }
+    console.log(user.displayName, user.email);
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

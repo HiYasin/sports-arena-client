@@ -12,15 +12,15 @@ const MyEquipments = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axiosPublic.get(`/my-equipment?email=${user.email}`);
+                const res = await axiosPublic.get(`/my-equipment?email=${user?.email}`);
                 setProducts(res.data);
             } catch (error) {
                 //console.log(error)
             }
         };
         fetchData();
-    }, [products, setProducts]);
-    //console.log(products);
+    }, [user]);
+    console.log(products);
     const handleDelete = (id) => {
         //console.log(id);
         Swal.fire({
@@ -35,8 +35,8 @@ const MyEquipments = () => {
             if (result.isConfirmed) {
                 try {
                     const res = await axiosPublic.delete(`/delete-equipment/${id}`);
-                    console.log(res.data);
-                    if (res.data.acknowledge) {
+                    //console.log(res.data);
+                    if (res.data.acknowledged && res.data.deletedCount > 0) {
 
                         Swal.fire(
                             'Deleted!',
@@ -51,7 +51,7 @@ const MyEquipments = () => {
                         );
                     }
                 } catch (error) {
-                    console.log(error);
+                    //console.log(error);
                     Swal.fire({
                         title: "Error",
                         text: "Failed to delete the equipment",
@@ -88,7 +88,7 @@ const MyEquipments = () => {
                                     <td className="px-4 text-center">${product.price}</td>
                                     <td className="px-4 text-center">{product.rating} ⭐</td>
                                     <td className="space-x-1 text-center">
-                                        <button className="btn btn-accent">Update</button>
+                                        <Link to={`/update/${product._id}`} className="btn btn-accent">Update</Link>
                                         <button className="btn btn-error" onClick={() => { handleDelete(product._id) }}>Delete</button>
                                     </td>
                                 </tr>
