@@ -23,9 +23,17 @@ const AllEquipment = () => {
         };
         fetchData();
     }, []);
+    const handleSort = () =>{
+        // sorting logic here
+        const sortedProducts = products.sort((a, b) => a.price - b.price);
+        setProducts(setProducts);
+    }
     return (
         <>
             <SectionTitle>All Equipments</SectionTitle>
+            <div className='w-full flex justify-center py-2'>
+                <button className='btn btn-accent' onClick={handleSort}>Sort by price</button>
+            </div>
             {/* table */} 
             <table className="table-auto w-full bg-base-100 rounded-2xl overflow-x-scroll">
                 <thead>
