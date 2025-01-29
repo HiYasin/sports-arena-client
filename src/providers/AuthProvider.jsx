@@ -10,10 +10,9 @@ const AuthProvider = ({ children }) => {
     //console.log(user);
 
     //google login/registration
-
-    const googleSign = (provider) => {
+    const provider = new GoogleAuthProvider();
+    const googleSign = () => {
         return signInWithPopup(auth, provider);
-
     }
     const updateInfo = ( name, photoURL ) =>{
         return updateProfile(auth.currentUser, { displayName: name, photoURL: photoURL })
@@ -61,7 +60,7 @@ const AuthProvider = ({ children }) => {
         createUser,
         signOutUser,
     }
-    console.log(user.displayName, user.email);
+    //console.log(user.displayName, user.email);
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

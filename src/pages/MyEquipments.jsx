@@ -20,7 +20,7 @@ const MyEquipments = () => {
         };
         fetchData();
     }, [user]);
-    console.log(products);
+    //console.log(products);
     const handleDelete = (id) => {
         //console.log(id);
         Swal.fire({
