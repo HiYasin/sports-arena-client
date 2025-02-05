@@ -1,7 +1,3 @@
-Here's a new README file incorporating all the requested improvements:
-
----
-
 # 🏆 Sports Arena
 
 **Sports Arena** is a dynamic e-commerce platform designed for sports enthusiasts, offering a wide range of premium sports accessories, gear, and apparel. With a responsive interface, seamless authentication, and intuitive navigation, it caters to both amateur and professional athletes.
@@ -140,25 +136,7 @@ The project utilizes the following libraries:
 - Browse and purchase sports accessories.  
 - Create an account and securely log in.  
 - Leave product ratings and reviews.  
-- Manage your profile and past purchases.  
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Follow these steps:
-
-1. **Fork the Repository**  
-2. **Create a Feature Branch** (`git checkout -b feature-name`)  
-3. **Commit Changes** (`git commit -m "Add feature"`)  
-4. **Push to Branch** (`git push origin feature-name`)  
-5. **Open a Pull Request**  
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
+- Manage your profile and past purchases.
 
 ---
 
