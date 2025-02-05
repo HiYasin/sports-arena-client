@@ -6,8 +6,6 @@ Here's a new README file incorporating all the requested improvements:
 
 **Sports Arena** is a dynamic e-commerce platform designed for sports enthusiasts, offering a wide range of premium sports accessories, gear, and apparel. With a responsive interface, seamless authentication, and intuitive navigation, it caters to both amateur and professional athletes.
 
-![Sports Arena Screenshot](screenshot.png) *(Replace with actual screenshot image path)*
-
 ## 🌐 Live Demo
 
 [🔗 Sports Arena Live Website](https://sports-arena-cb441.web.app)
@@ -55,8 +53,8 @@ Here's a new README file incorporating all the requested improvements:
 
 1️⃣ **Clone the Repository**  
 ```sh
-git clone https://github.com/your-repo/staff-sync.git
-cd staff-sync
+git clone https://github.com/HiYasin/sports-arena-client.git
+cd sports-arena
 ```
 
 2️⃣ **Install Dependencies**  
