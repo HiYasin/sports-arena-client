@@ -51,28 +51,42 @@ Here's a new README file incorporating all the requested improvements:
 
 ---
 
-## 🚀 Installation
+## 🛠️ How to Run Locally  
 
-Follow these steps to run the project locally:
+1️⃣ **Clone the Repository**  
+```sh
+git clone https://github.com/your-repo/staff-sync.git
+cd staff-sync
+```
 
-1️⃣ Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/sports-arena.git
-   cd sports-arena
-   ```
+2️⃣ **Install Dependencies**  
+```sh
+npm install
+```
 
-2️⃣ Install dependencies:
-   ```bash
-   npm install
-   ```
+3️⃣ **Set Up environment file**  
+Here’s the `.env` configuration formatted in Markdown:
 
-3️⃣ Start the development server:
-   ```bash
-   npm run dev
-   ```
+# Environment Variables
 
-4️⃣ Open your browser and visit `http://localhost:5173/`
+Create a `.env` file in the root directory and add the following variables:
 
+```env
+VITE_apiKey=your_firebase_apiKey
+VITE_authDomain=your_firebase_authDomain
+VITE_projectId=your_firebase_projectId
+VITE_storageBucket=your_firebase_storageBucket
+VITE_messagingSenderId=your_firebase_messagingSenderId
+VITE_appId=your_firebase_appId
+```
+> **Note:** Replace `your_firebase_apiKey`, `your_imageUploadKey`, etc., with your actual keys.
+
+Make sure to add `.env` to your `.gitignore` file to keep your credentials secure.
+
+4️⃣ **Run the Application**  
+```sh
+npm run dev
+```
 ---
 
 ## 📦 Dependencies
